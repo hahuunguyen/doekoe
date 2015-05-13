@@ -1,10 +1,39 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">From</button>
+          </span>
+          <input type="text" class="form-control" value="01-04-2014">
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+      <div class="col-lg-6">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">To</button>
+          </span>
+          <input type="text" class="form-control" value="02-06-2014">
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+</div>
+<div class="row">
+    <div class="col-md-6">
+         <d3pie data="Household"></d3pie>
+         <div d3pie data="40,4,55,15,16,33,52,20"></div>
+    </div>
+    <div class="col-md-6">
+         <d3pie data="Leisure"></d3pie>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+         <d3pie data="Travel"></d3pie>
+    </div>
+    <div class="col-md-6">
+         <d3pie data="Others"></d3pie>
+    </div>
+</div>
 
- <d3pie data="40,4,55,15,16,33,52,20"></d3pie>
 
 
 
