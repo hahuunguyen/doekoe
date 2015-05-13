@@ -1,0 +1,31 @@
+{
+    'recepts': 
+        [
+            {
+                'date': 'January 5th 2014', 
+                'shop': 'Sodexo', 
+                'items': 
+                    [ 
+                        {'name': 'Barilla pasta fusilli 500g', 'quantity': 3, 'unitprice': 1.39, 'price': 1.39 },
+                        {'name': 'Barilla pastakast 400g bas-tom', 'quantity': 1, 'unitprice': 2.29, 'price': 2.29 }
+                    ],
+                'card': '    MAESTRO**** **** **** ***4 013 CP',
+                'application': 'A00000000043060',
+                'payee': '0138467812389/1237',
+                'certificate': '6A8713H75H6HHL',
+                'reference': '25423737',
+                'category': 'food'
+            }
+        ],
+    'deals': 
+        [
+            {
+                'shop': 'Hesburger',
+                'deal': '20% discount',
+                'lastdate': 'January 5th 2014'
+            }
+        ],
+    'saved': 
+        [
+        ]
+}
