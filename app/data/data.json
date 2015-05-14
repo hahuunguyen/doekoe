@@ -1,31 +1,68 @@
 {
-    'recepts': 
+    "receipts":
         [
             {
-                'date': 'January 5th 2014', 
-                'shop': 'Sodexo', 
-                'items': 
+                "id": 1,
+                "date": "January 5th 2014", 
+                "shop": "Sodexo", 
+                "items": 
                     [ 
-                        {'name': 'Barilla pasta fusilli 500g', 'quantity': 3, 'unitprice': 1.39, 'price': 1.39 },
-                        {'name': 'Barilla pastakast 400g bas-tom', 'quantity': 1, 'unitprice': 2.29, 'price': 2.29 }
+                        {"name": "Barilla pasta fusilli 500g", "quantity": 3, "unitprice": 1.39 },
+                        {"name": "Barilla pastakast 400g bas-tom", "quantity": 1, "unitprice": 2.29 }
                     ],
-                'card': '    MAESTRO**** **** **** ***4 013 CP',
-                'application': 'A00000000043060',
-                'payee': '0138467812389/1237',
-                'certificate': '6A8713H75H6HHL',
-                'reference': '25423737',
-                'category': 'food'
+                "card": "**** **** **** ***4 013 CP",
+                "card_type": "MAESTRO",
+                "application": "A00000000043060",
+                "payee": "0138467812389/1237",
+                "certificate": "6A8713H75H6HHL",
+                "reference": "25423737",
+                "category": "food",
+                "price": 10.95
+            },
+            {
+                "id": 2,
+                "date": "January 6th 2014",
+                "shop": "Showroom 8",
+                "items":
+                [
+                    {"name": "Martini black shoes", "quantity": 1, "unitprice": 329.00 }
+                ],
+                "card": "**** **** **** ***4 013 CP",
+                "card_type": "MAESTRO",
+                "application": "A00000000076060",
+                "payee": "0138467812383/1237",
+                "certificate": "6A8713H75H6HHL",
+                "reference": "25423737",
+                "category": "clothing",
+                "price": 329.00
+            },
+            {
+                "id": 3,
+                "date": "January 8th 2014",
+                "shop": "Showroom 8",
+                "items":
+                [
+                    {"name": "T-Shirt", "quantity": 1, "unitprice": 59.00 }
+                ],
+                "card": "**** **** **** ***4 013 CP",
+                "card_type": "MAESTRO",
+                "application": "A00000000076060",
+                "payee": "0138467812383/1237",
+                "certificate": "6A8713H75H6HHL",
+                "reference": "25423737",
+                "category": "clothing",
+                "price": 329.00
             }
         ],
-    'deals': 
+    "deals": 
         [
             {
-                'shop': 'Hesburger',
-                'deal': '20% discount',
-                'lastdate': 'January 5th 2014'
+                "shop": "Hesburger",
+                "deal": "20% discount",
+                "lastdate": "January 5th 2014"
             }
         ],
-    'saved': 
+    "saved": 
         [
         ]
 }

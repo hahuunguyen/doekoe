@@ -1,81 +1,81 @@
-<table class="table table-striped table-hover">
-    <thead>
-    <tr>
-        <th>Date</th>
-        <th>Shop</th>
-        <th>Number of items</th>
-        <th>Amount</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>January 5th 2014</td>
-        <td><a href="#" title="View al receipts from Sodexo">Sodexo</a></td>
-        <td>3</td>
-        <td>€ 15.50</td>
-        <td>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                View details
-            </button>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<div ng-controller="View1Ctrl">
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Sodexo
-                    <small>January 5th 2014</small>
-                </h4>
-            </div>
-            <div class="modal-body">
-                <table class="table table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Quantity</th>
-                        <th>Unit price</th>
-                        <th class="text-right">Price</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Barilla pasta fusilli 500g</td>
-                        <td>3</td>
-                        <td>€ 1.39</td>
-                        <td class="text-right">€ 1.39</td>
-                    </tr>
-                    <tr>
-                        <td>Barilla pastakast 400g bas-tom</td>
-                        <td>1</td>
-                        <td>€ 2.29</td>
-                        <td class="text-right">€ 2.29</td>
-                    </tr>
-                    <tr>
-                        <th>Total</th>
-                        <td colspan="2">4</td>
-                        <td class="text-right">€ 15.50</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <dl class="dl-horizontal">
-                    <dt>Card</dt>
-                    <dd>MAESTRO</dd>
-                    <dd>**** **** **** ***4 013 CP</dd>
-                    <dt>Application</dt>
-                    <dd>A00000000043060</dd>
-                    <dt>Payee/business</dt>
-                    <dd>0138467812389/1237</dd>
-                    <dt>Certificate</dt>
-                    <dd>6A8713H75H6HHL</dd>
-                    <dt>Reference</dt>
-                    <dd>25423737</dd>
-                </dl>
+    <div>
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Shop</th>
+                <th>Number of items</th>
+                <th class="text-right">Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="receipt in receipts">
+                <td>{{ receipt.date }}</td>
+                <td><a href="#" title="View al receipts from Sodexo">{{ receipt.shop }}</a></td>
+                <td>{{ receipt.items.length }}</td>
+                <td class="text-right">{{receipt.price | currency}}</td>
+                <td class="text-right">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ receipt.id }}Modal">
+                        View details
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!-- Modal -->
+        <div class="modal fade" id="{{ receipt.id }}Modal" tabindex="-1" role="dialog" aria-labelledby="{{ receipt.id }}Modal"
+             aria-hidden="true" ng-repeat="receipt in receipts">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">{{receipt.shop}}
+                            <small>{{receipt.date}}</small>
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Quantity</th>
+                                <th>Unit price</th>
+                                <th class="text-right">Price</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="item in receipt.items">
+                                <td>{{item.name}}</td>
+                                <td>{{item.quantity}}</td>
+                                <td>€ {{item.unitprice | currency}}</td>
+                                <td class="text-right">€ {{ item.quantity * item.unitprice | currency}}</td>
+                            </tr>
+                            <tr>
+                                <th>Total</th>
+                                <td colspan="2">4</td>
+                                <td class="text-right">€ {{receipt.price | currency}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <dl class="dl-horizontal">
+                            <dt>Card</dt>
+                            <dd>{{receipt.card_type}}</dd>
+                            <dd>{{receipt.card}}</dd>
+                            <dt>Application</dt>
+                            <dd>{{receipt.application}}</dd>
+                            <dt>Payee/business</dt>
+                            <dd>{{receipt.payee}}</dd>
+                            <dt>Certificate</dt>
+                            <dd>{{receipt.certificate}}</dd>
+                            <dt>Reference</dt>
+                            <dd>{{receipt.reference}}</dd>
+                        </dl>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
