@@ -2,11 +2,12 @@
 
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
-  'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.deals',
-  'myApp.version'
+    'ngRoute',
+    'myApp.view1',
+    'myApp.view2',
+    'myApp.deals',
+    'myApp.settings',
+    'myApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});
@@ -70,89 +71,92 @@ config(['$routeProvider', function($routeProvider) {
                 
             svg.append("g")
             	.attr("class", "labels");
+
                 svg.append("g")
-            	.attr("class", "lines");
-            
-              var g = svg.selectAll(".arc")
-                  .data(pie(data))
-                .enter().append("g")
-                  .attr("class", "arc");
-            
-              g.append("path")
-                  .attr("d", arc)
-                  .style("fill", function(d) { return color(d.data.category); });
-                
+                    .attr("class", "lines");
+
+                var g = svg.selectAll(".arc")
+                    .data(pie(data))
+                    .enter().append("g")
+                    .attr("class", "arc");
+
+                g.append("path")
+                    .attr("d", arc)
+                    .style("fill", function (d) {
+                        return color(d.data.category);
+                    });
+
                 /* ------- TEXT LABELS -------*/
 
-            	var text = svg.select(".labels").selectAll("text")
-            		.data(pie(data), function (d) {
-            		    return d.data.category;
-            		} );
-            
-            	text.enter()
-            		.append("text")
-            		.attr("dy", ".35em")
-            		.text(function(d) {
-            			return d.data.category;
-            		});
-            	
-            	function midAngle(d){
-            		return d.startAngle + (d.endAngle - d.startAngle)/2;
-            	}
-            
-            	text.transition().duration(1000)
-            		.attrTween("transform", function(d) {
-            			this._current = this._current || d;
-            			var interpolate = d3.interpolate(this._current, d);
-            			this._current = interpolate(0);
-            			return function(t) {
-            				var d2 = interpolate(t);
-            				var pos = outerArc.centroid(d2);
-            				pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
-            				return "translate("+ pos +")";
-            			};
-            		})
-            		.styleTween("text-anchor", function(d){
-            			this._current = this._current || d;
-            			var interpolate = d3.interpolate(this._current, d);
-            			this._current = interpolate(0);
-            			return function(t) {
-            				var d2 = interpolate(t);
-            				return midAngle(d2) < Math.PI ? "start":"end";
-            			};
-            		});
-            
-            	text.exit()
-            		.remove();
-            
-            	/* ------- SLICE TO TEXT POLYLINES -------*/
-            
-            	var polyline = svg.select(".lines").selectAll("polyline")
-            		.data(pie(data), function(d) {
-            		    return d.data.category;
-            		});
-            	
-            	polyline.enter()
-            		.append("polyline");
-            
-            	polyline.transition().duration(1000)
-            		.attrTween("points", function(d){
-            			this._current = this._current || d;
-            			var interpolate = d3.interpolate(this._current, d);
-            			this._current = interpolate(0);
-            			return function(t) {
-            				var d2 = interpolate(t);
-            				var pos = outerArc.centroid(d2);
-            				pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
-            				return [arc.centroid(d2), outerArc.centroid(d2), pos];
-            			};			
-            		});
-            	
-            	polyline.exit()
-            		.remove();
-            
-         } 
-      };
-   });
+                var text = svg.select(".labels").selectAll("text")
+                    .data(pie(data), function (d) {
+                        return d.data.category;
+                    });
+
+                text.enter()
+                    .append("text")
+                    .attr("dy", ".35em")
+                    .text(function (d) {
+                        return d.data.category;
+                    });
+
+                function midAngle(d) {
+                    return d.startAngle + (d.endAngle - d.startAngle) / 2;
+                }
+
+                text.transition().duration(1000)
+                    .attrTween("transform", function (d) {
+                        this._current = this._current || d;
+                        var interpolate = d3.interpolate(this._current, d);
+                        this._current = interpolate(0);
+                        return function (t) {
+                            var d2 = interpolate(t);
+                            var pos = outerArc.centroid(d2);
+                            pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
+                            return "translate(" + pos + ")";
+                        };
+                    })
+                    .styleTween("text-anchor", function (d) {
+                        this._current = this._current || d;
+                        var interpolate = d3.interpolate(this._current, d);
+                        this._current = interpolate(0);
+                        return function (t) {
+                            var d2 = interpolate(t);
+                            return midAngle(d2) < Math.PI ? "start" : "end";
+                        };
+                    });
+
+                text.exit()
+                    .remove();
+
+                /* ------- SLICE TO TEXT POLYLINES -------*/
+
+                var polyline = svg.select(".lines").selectAll("polyline")
+                    .data(pie(data), function (d) {
+                        return d.data.category;
+                    });
+
+                polyline.enter()
+                    .append("polyline");
+
+                polyline.transition().duration(1000)
+                    .attrTween("points", function (d) {
+                        this._current = this._current || d;
+                        var interpolate = d3.interpolate(this._current, d);
+                        this._current = interpolate(0);
+                        return function (t) {
+                            var d2 = interpolate(t);
+                            var pos = outerArc.centroid(d2);
+                            pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
+                            return [arc.centroid(d2), outerArc.centroid(d2), pos];
+                        };
+                    });
+
+                polyline.exit()
+                    .remove();
+
+            }
+        };
+    });
    
    

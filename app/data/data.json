@@ -17,7 +17,8 @@
                 "certificate": "6A8713H75H6HHL",
                 "reference": "25423737",
                 "category": "food",
-                "price": 6.46
+                "price": 6.46,
+                "account": "NL15 RABO 0232 34 387"
             },
             {
                 "id": 2,
@@ -34,7 +35,8 @@
                 "certificate": "6A8713H75H6HHL",
                 "reference": "25423737",
                 "category": "clothing",
-                "price": 329.00
+                "price": 329.00,
+                "account": "NL15 RABO 0232 34 387"
             },
             {
                 "id": 3,
@@ -51,7 +53,8 @@
                 "certificate": "6A8713H75H6HHL",
                 "reference": "25423737",
                 "category": "clothing",
-                "price": 59.00
+                "price": 59.00,
+                "account": "NL15 RABO 0232 34 387"
             }
         ],
     "deals": 
