@@ -11,7 +11,7 @@ angular.module('myApp', [
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});
 }])
-.directive('d3pie', function ($parse) {
+.directive('d3pie', function ($window) {
       return {
          restrict: 'E',
          replace: true,
@@ -43,8 +43,8 @@ config(['$routeProvider', function($routeProvider) {
             };
         
             var data= dataSet[attrs.data];
-            var width = 450,
-                height = 220,
+            var width = $(element[0]).parent().width(),
+                height = width / 2,
                 radius = Math.min(width, height) / 2;
             
             var color = d3.scale.ordinal()
