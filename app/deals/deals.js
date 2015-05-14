@@ -9,6 +9,12 @@ angular.module('myApp.deals', ['ngRoute'])
   });
 }])
 
-.controller('DealsCtrl', [function() {
-
-}]);
+.controller('DealsCtrl', ['$scope', '$http', function ($scope, $http) {
+      $http.get('data/data.json')
+          .success(function (data, status, headers, config) {
+            $scope.deals = data.deals;
+          })
+          .error(function (data, status, headers, config) {
+            // log error
+          });
+    }]);

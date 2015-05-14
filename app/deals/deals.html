@@ -1,17 +1,7 @@
-<div class="panel panel-default">
+<div class="panel panel-default" ng-repeat="deal in deals">
   <div class="panel-body">
-    <img src="deals/images/hesburger.gif" class="pull-left deals-logo">
-    <h1>20% off on Mega Ateria! <small>Hessburger</small></h1>
-    <button class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> View deal!</button>
-    <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> I am not interested</button>
-    <strong>Valid until:</strong> 3th of June
-  </div>
-</div>
-
-<div class="panel panel-default">
-  <div class="panel-body">
-    <img src="deals/images/pants.png" class="pull-left deals-logo">
-    <h1>Now 59.95! <small>Jack & Jones</small></h1>
+    <img src="{{deal.image}}" class="pull-left deals-logo">
+    <h1>{{deal.deal}} <small>{{deal.shop}}</small></h1>
     <button class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> View deal!</button>
     <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> I am not interested</button>
     <strong>Valid until:</strong> 10th of June

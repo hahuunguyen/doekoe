@@ -15,7 +15,7 @@
                 <td>{{ receipt.date }}</td>
                 <td><a href="#" title="View al receipts from Sodexo">{{ receipt.shop }}</a></td>
                 <td>{{ receipt.items.length }}</td>
-                <td class="text-right">{{receipt.price | currency}}</td>
+                <td class="text-right">€ {{receipt.price | number:2}}</td>
                 <td class="text-right">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ receipt.id }}Modal">
                         View details
@@ -51,13 +51,13 @@
                             <tr ng-repeat="item in receipt.items">
                                 <td>{{item.name}}</td>
                                 <td>{{item.quantity}}</td>
-                                <td>€ {{item.unitprice | currency}}</td>
-                                <td class="text-right">€ {{ item.quantity * item.unitprice | currency}}</td>
+                                <td>€ {{item.unitprice | number:2}}</td>
+                                <td class="text-right">€ {{ item.quantity * item.unitprice | number:2}}</td>
                             </tr>
                             <tr>
                                 <th>Total</th>
                                 <td colspan="2">4</td>
-                                <td class="text-right">€ {{receipt.price | currency}}</td>
+                                <td class="text-right">€ {{receipt.price | number:2}}</td>
                             </tr>
                             </tbody>
                         </table>
