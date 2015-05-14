@@ -15,7 +15,7 @@
             <tr ng-repeat="receipt in receipts">
                 <td>{{ receipt.date }}</td>
                 <td><a href="#" title="View al receipts from Sodexo">{{ receipt.shop }}</a></td>
-                <td>{{receipt.account}}</td>
+                <td><a href="#" title="View al receipts from this account">{{receipt.account_name}}</a></td>
                 <td>{{ receipt.items.length }}</td>
                 <td class="text-right">€ {{receipt.price | number:2}}</td>
                 <td class="text-right">

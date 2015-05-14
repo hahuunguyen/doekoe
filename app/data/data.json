@@ -18,7 +18,8 @@
                 "reference": "25423737",
                 "category": "food",
                 "price": 6.46,
-                "account": "NL15 RABO 0232 34 387"
+                "account": "NL15 RABO 0232 34 387",
+                "account_name": "Rabo personal"
             },
             {
                 "id": 2,
@@ -36,7 +37,8 @@
                 "reference": "25423737",
                 "category": "clothing",
                 "price": 329.00,
-                "account": "NL15 RABO 0232 34 387"
+                "account": "NL15 RABO 0232 34 387",
+                "account_name": "Rabo personal"
             },
             {
                 "id": 3,
@@ -54,7 +56,8 @@
                 "reference": "25423737",
                 "category": "clothing",
                 "price": 59.00,
-                "account": "NL15 RABO 0232 34 387"
+                "account": "NL15 RABO 0232 34 387",
+                "account_name": "Danska"
             }
         ],
     "deals": 
